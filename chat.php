@@ -22,7 +22,7 @@
 	</div>
 </div>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

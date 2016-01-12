@@ -36,13 +36,13 @@ $(document).ready(function () {
 
     var login = getCookie ( "user_logged" );
 
-    if(!login) {
-        alert("please login to continue");
-        window.location.assign("http://127.0.0.1");
-    }
+    //if(!login) {
+    //    alert("please login to continue");
+    //    window.location.assign("http://localhost");
+    //}
 
 
-    var socket = io.connect('http://127.0.0.1:3000');
+    var socket = io.connect('http://localhost:3000');
     var name = login + " ";
     var messages = $("#messages");
     var uploadBtn = $(".upload");
