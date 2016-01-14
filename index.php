@@ -7,9 +7,9 @@ require_once 'Auth.php';
 
 
 if (isset($_SESSION['login'])) {
-	header("Location:http://localhost/chat.php");
+	header("Location: http://localhost/chat.php");
+	echo "login user = " . $_SESSION['login'];
 }
-
 require_once 'header.php';
 ?>
 
@@ -44,9 +44,8 @@ $password = stripslashes(trim($_POST['password']));
 //$login = mysql_real_escape_string($login);
 //$password = mysql_real_escape_string($password);
 
-$login_date = date("Y:m:d h:m:s");
-
 if (isset ($_POST ['submit'])) {
+	$login_date = date("Y:m:d h:m:s");
 	$conn = new Db;
 
 	if (empty ($login) or empty($password)) {
@@ -119,7 +118,6 @@ if (isset($_GET['code'])) {
 	}
 
 	if ($result) {
-		print_r($userInfo);
 		setcookie('user_logged', $userInfo['name']);
 		setcookie('user_link', $userInfo['id']);
 

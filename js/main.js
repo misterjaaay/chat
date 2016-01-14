@@ -35,8 +35,6 @@ $(document).ready(function () {
     }
 
     var login = getCookie ( "user_logged" );
-    var user_link = getCookie('user_link');
-    var user_link = '<a href=http://facebook.com/' +  user_link + '>' + safe(login) + '</a>'
 
     if(!login) {
         alert("please login to continue");
@@ -52,7 +50,7 @@ $(document).ready(function () {
 
     function msg(nick, message) {
         var m = '<div class="msg">' +
-            '<span class="user">' + user_link + ':</span> '
+            '<span class="user">' + safe(nick) + ':</span> '
             + safe(message) +
             '</div>';
         messages

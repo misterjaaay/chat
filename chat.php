@@ -13,6 +13,7 @@
 				</div>
 				<div class="about">
 					<?php
+					 $user_link = '<a href=http://facebook.com/' .$_COOKIE['user_link'].'</a>';
 						echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
 						echo "Имя пользователя: " . $userInfo['name'] . '<br />';
 						echo "Email: " . $userInfo['email'] . '<br />';

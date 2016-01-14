@@ -8,7 +8,7 @@
 
 class Db
 {
-	private $_servername="localhost";
+	private $_servername;
 	private $_dbusername;
 	private $_dbpassword;
 	private $_dbName="chat";
@@ -20,10 +20,12 @@ class Db
 		$this->conn = mysqli_connect ( $this->_servername, $this->_dbusername, $this->_dbpassword, $this->_dbName);
 	}
 	protected function getConfigData(){
-		$str = file_get_contents('../config/config.ini');
-		$arr = explode("::::", $str);
-		$this->_dbusername = $arr[0];
-		$this->_dbpassword = $arr[1];
+		$string = file_get_contents('config/config.ini');
+		$arr = explode("::::", $string);
+		$this->_servername = $arr[0];
+		$this->_dbusername = $arr[1];
+		$this->_dbpassword = $arr[2];
+
 	}
 
 	public function sqlQuery($sql){
