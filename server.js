@@ -29,6 +29,7 @@ io.on('connection', function (socket) {
 
     socket.on('message', function (message) {
         try {
+            socket.emit('message')
             //посылаем сообщение себе
             socket.emit('message', message);
             //посылаем сообщение всем клиентам, кроме себя

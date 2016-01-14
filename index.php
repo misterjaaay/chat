@@ -1,4 +1,7 @@
 <?php
+
+require_once 'Db.php';
+
 session_start();
 
 if (isset($_SESSION['login'])) {
@@ -68,6 +71,7 @@ if (isset ($_POST ['submit'])) {
 	if (empty ($login) or empty($password)) {
 		die("please fill the form above");
 	}
+
 
 	$conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME) or die ("Connection failed: " . mysqli_connect_error());
 	$sql = "SELECT * FROM users WHERE login = '" . $login . "' AND password = '" . sha1('ololo' . $password) . "' ";
