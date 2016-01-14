@@ -35,12 +35,10 @@ $(document).ready(function () {
     }
 
     var login = getCookie ( "user_logged" );
-
-    //if(!login) {
-    //    alert("please login to continue");
-    //    window.location.assign("http://localhost");
-    //}
-
+    if(!login) {
+        alert("please login to continue");
+        window.location.assign("http://localhost");
+    }
 
     var socket = io.connect('http://localhost:3000');
     var name = login + " ";
@@ -48,11 +46,6 @@ $(document).ready(function () {
     var uploadBtn = $(".upload");
     var message_txt = $("#message_text");
 
-
-    $('.logout').click(function(){
-        console.log(login);
-        deleteCookie(test);
-    });
 
     function msg(nick, message) {
         var m = '<div class="msg">' +

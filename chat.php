@@ -13,8 +13,7 @@
 	<div class="pages chat">
 		<div class="messages" id="messages"></div>
 		<div class="panel">
-
-			<button class="logout">Logout</button>
+			<h3><a href="logout.php">Logout</a></h3>
 		</div>
 		<div class="message-text-holder">
 			<input type="text" name="message_text" id="message_text" placeholder="<?php echo $_COOKIE['user_logged'];?> | type text here...">
