@@ -1,12 +1,13 @@
 <?php
 
 require_once 'Db.php';
+require_once 'Auth.php';
 
 session_start();
 
 if (isset($_SESSION['login'])) {
 
-	header("Location: http://localhost/chat.php");
+	header("Location:". $_SERVER['PHP_SELF']."/chat.php");
 	echo "login user = " . $_SESSION['login'];
 
 }
@@ -15,7 +16,7 @@ if (isset($_SESSION['login'])) {
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>chat</title>
+	<title>Smart chat | buy ETAdirect without registration | how to buy OFSC without SMS</title>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -35,30 +36,15 @@ if (isset($_SESSION['login'])) {
 						<div class="help-block text-right"><a href="">Forgot the password?</a></div>
 					</div>
 					<h3><a href="logout.php">Logout</a></h3>
-					<!--					<div class="checkbox">-->
-					<!--						<label>-->
-					<!--							<input type="checkbox"> keep me logged-in-->
-					<!--						</label>-->
-					<!--					</div>-->
 				</form>
 			</div>
 		</div>
 	</div>
-	<!-- /.navbar-collapse -->
 </div>
-<!-- /.container-fluid -->
 </body>
 </html>
 
 <?php
-ini_set('display errors', 1);
-
-define("SERVERNAME", "localhost");
-define("USERNAME", "root");
-define("PASSWORD", "1");
-define("DBNAME", "chat");
-
-
 $login = stripslashes(trim($_POST['login']));
 $password = stripslashes(trim($_POST['password']));
 
@@ -68,14 +54,15 @@ $password = stripslashes(trim($_POST['password']));
 $login_date = date("Y:m:d h:m:s");
 
 if (isset ($_POST ['submit'])) {
+	$conn = new Db;
+
 	if (empty ($login) or empty($password)) {
 		die("please fill the form above");
 	}
 
-
-	$conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME) or die ("Connection failed: " . mysqli_connect_error());
 	$sql = "SELECT * FROM users WHERE login = '" . $login . "' AND password = '" . sha1('ololo' . $password) . "' ";
-	$result = mysqli_query($conn, $sql);
+	$result = $conn->sqlQuery ( $sql );
+
 	$count = mysqli_num_rows($result);
 
 	if ($count == 1) {
@@ -83,18 +70,21 @@ if (isset ($_POST ['submit'])) {
 		$sql = "UPDATE users
 				SET	 last_login = '" . $login_date . "'
 				Where `login` = '" . $login . "'";
-		$result = mysqli_query($conn, $sql);
+
+//		$result = mysqli_query($conn, $sql);
+		$result = $conn->sqlQuery ( $sql );
 
 		$_SESSION['login'] = $login;
 		$user_logged = setcookie('user_logged', $login);
 		echo $user_logged;
-		header("Location: http://localhost/chat.php");
+		header("Location:". $_SERVER['PHP_SELF']."/chat.php");
 
 	} else {
 		die ('<b>Wrong username or password</b> <br />');
 	}
 
-	mysqli_close($conn);
+//	mysqli_close($conn);
+	$conn;
 }
 
 
