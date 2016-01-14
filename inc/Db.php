@@ -20,7 +20,7 @@ class Db
 		$this->conn = mysqli_connect ( $this->_servername, $this->_dbusername, $this->_dbpassword, $this->_dbName);
 	}
 	protected function getConfigData(){
-		$str = file_get_contents('config.ini');
+		$str = file_get_contents('../config/config.ini');
 		$arr = explode("::::", $str);
 		$this->_dbusername = $arr[0];
 		$this->_dbpassword = $arr[1];

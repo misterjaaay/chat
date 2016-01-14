@@ -98,6 +98,7 @@ $(document).ready(function () {
     function safe(str) {
         return str.replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
+            .replace(/\+/g, "&nbsp")
             .replace(/>/g, '&gt;');
     }
 
