@@ -2,5 +2,5 @@
 session_start();
 session_destroy();
 setcookie("user_logged","");
-setcookie("fbuser_logged","");
+setcookie("user_link","");
 header('Location: /');

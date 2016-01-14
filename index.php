@@ -1,9 +1,10 @@
 <?php
+session_start();
 
 require_once 'inc/Db.php';
 require_once 'Auth.php';
 
-session_start();
+
 
 if (isset($_SESSION['login'])) {
 	header("Location:http://localhost/chat.php");
@@ -54,7 +55,6 @@ if (isset ($_POST ['submit'])) {
 
 	$sql = "SELECT * FROM users WHERE login = '" . $login . "' AND password = '" . sha1('ololo' . $password) . "' ";
 	$result = $conn->sqlQuery ( $sql );
-
 	$count = mysqli_num_rows($result);
 
 	if ($count == 1) {
@@ -67,7 +67,6 @@ if (isset ($_POST ['submit'])) {
 
 		$_SESSION['login'] = $login;
 		$user_logged = setcookie('user_logged', $login);
-		echo $user_logged;
 		header("Location:http://localhost/chat.php");
 
 	} else {
@@ -120,18 +119,11 @@ if (isset($_GET['code'])) {
 	}
 
 	if ($result) {
+		print_r($userInfo);
+		setcookie('user_logged', $userInfo['name']);
+		setcookie('user_link', $userInfo['id']);
 
-		$user_logged = setcookie('user_logged', $userInfo['name']);
 		header("Location:http://localhost/chat.php");
-		
-		echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
-		echo "Имя пользователя: " . $userInfo['name'] . '<br />';
-		echo "Email: " . $userInfo['email'] . '<br />';
-		echo "Ссылка на профиль пользователя: " . $userInfo['link'] . '<br />';
-		echo "Пол пользователя: " . $userInfo['gender'] . '<br />';
-		echo "ДР: " . $userInfo['birthday'] . '<br />';
-		echo '<img src="http://graph.facebook.com/' . $userInfo['username'] . '/picture?type=large" />';
-		echo "<br />";
 	}
 
 }
