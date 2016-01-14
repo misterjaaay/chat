@@ -1,13 +1,13 @@
 <?php
 
-require_once 'Db.php';
+require_once 'inc/Db.php';
 require_once 'Auth.php';
 
 session_start();
 
 if (isset($_SESSION['login'])) {
 
-	header("Location:". $_SERVER['PHP_SELF']."/chat.php");
+	header("Location:http://localhost/chat.php");
 	echo "login user = " . $_SESSION['login'];
 
 }
@@ -18,7 +18,7 @@ if (isset($_SESSION['login'])) {
 	<meta charset="utf-8">
 	<title>Smart chat | buy ETAdirect without registration | how to buy OFSC without SMS</title>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container-fluid">
@@ -71,80 +71,76 @@ if (isset ($_POST ['submit'])) {
 				SET	 last_login = '" . $login_date . "'
 				Where `login` = '" . $login . "'";
 
-//		$result = mysqli_query($conn, $sql);
 		$result = $conn->sqlQuery ( $sql );
 
 		$_SESSION['login'] = $login;
 		$user_logged = setcookie('user_logged', $login);
 		echo $user_logged;
-		header("Location:". $_SERVER['PHP_SELF']."/chat.php");
+		header("Location:http://localhost/chat.php");
 
 	} else {
 		die ('<b>Wrong username or password</b> <br />');
 	}
 
-//	mysqli_close($conn);
-	$conn;
 }
 
 
-/*fb auth*/
-
-$client_id = '195441934138712'; // Client ID
-$client_secret = 'dc96727cda6246ec918b933fe174c273'; // Client secret
-$redirect_uri = 'http://localhost/chat.php'; // Redirect URIs
-
-$url = 'https://www.facebook.com/dialog/oauth';
-
-$params = array(
-	'client_id' => $client_id,
-	'redirect_uri' => $redirect_uri,
-	'response_type' => 'code',
-	'scope' => 'email,user_birthday'
-);
-
-echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Facebook</a></p>';
-
-if (isset($_GET['code'])) {
-	$result = false;
-
-	$params = array(
-		'client_id' => $client_id,
-		'redirect_uri' => $redirect_uri,
-		'client_secret' => $client_secret,
-		'code' => $_GET['code']
-	);
-
-	$url = 'https://graph.facebook.com/oauth/access_token';
-
-	$tokenInfo = null;
-	parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo);
-
-	if (count($tokenInfo) > 0 && isset($tokenInfo['access_token'])) {
-		$params = array('access_token' => $tokenInfo['access_token']);
-
-		$userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
-
-		if (isset($userInfo['id'])) {
-			$userInfo = $userInfo;
-			$result = true;
-		}
-	}
-
-	if ($result) {
-		echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
-		echo "Имя пользователя: " . $userInfo['name'] . '<br />';
-		echo "Email: " . $userInfo['email'] . '<br />';
-		echo "Ссылка на профиль пользователя: " . $userInfo['link'] . '<br />';
-		echo "Пол пользователя: " . $userInfo['gender'] . '<br />';
-		echo "ДР: " . $userInfo['birthday'] . '<br />';
-		echo '<img src="http://graph.facebook.com/' . $userInfo['username'] . '/picture?type=large" />';
-		echo "<br />";
-	}
-
-}
+///*fb auth*/
+//
+//$client_id = '195441934138712'; // Client ID
+//$client_secret = 'dc96727cda6246ec918b933fe174c273'; // Client secret
+//$redirect_uri = 'http://localhost/chat.php'; // Redirect URIs
+//
+//$url = 'https://www.facebook.com/dialog/oauth';
+//
+//$params = array(
+//	'client_id' => $client_id,
+//	'redirect_uri' => $redirect_uri,
+//	'response_type' => 'code',
+//	'scope' => 'email,user_birthday'
+//);
+//
+//echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Facebook</a></p>';
+//
+//if (isset($_GET['code'])) {
+//	$result = false;
+//
+//	$params = array(
+//		'client_id' => $client_id,
+//		'redirect_uri' => $redirect_uri,
+//		'client_secret' => $client_secret,
+//		'code' => $_GET['code']
+//	);
+//
+//	$url = 'https://graph.facebook.com/oauth/access_token';
+//
+//	$tokenInfo = null;
+//	parse_str(file_get_contents($url . '?' . http_build_query($params)), $tokenInfo);
+//
+//	if (count($tokenInfo) > 0 && isset($tokenInfo['access_token'])) {
+//		$params = array('access_token' => $tokenInfo['access_token']);
+//
+//		$userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
+//
+//		if (isset($userInfo['id'])) {
+//			$userInfo = $userInfo;
+//			$result = true;
+//		}
+//	}
+//
+//	if ($result) {
+//		echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
+//		echo "Имя пользователя: " . $userInfo['name'] . '<br />';
+//		echo "Email: " . $userInfo['email'] . '<br />';
+//		echo "Ссылка на профиль пользователя: " . $userInfo['link'] . '<br />';
+//		echo "Пол пользователя: " . $userInfo['gender'] . '<br />';
+//		echo "ДР: " . $userInfo['birthday'] . '<br />';
+//		echo '<img src="http://graph.facebook.com/' . $userInfo['username'] . '/picture?type=large" />';
+//		echo "<br />";
+//	}
+//
+//}
 /*fb auth end*/
-?>
 
 
 

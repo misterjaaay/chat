@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<meta name="robots" content="noindex,nofollow"/>
 	<title>Smart chat with nodejs and socket.io</title>
 </head>
@@ -22,6 +22,6 @@
 </div>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-<script src="main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
