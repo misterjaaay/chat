@@ -13,21 +13,18 @@
 				</div>
 				<div class="about">
 					<?php
-					 $user_link = '<a href=http://facebook.com/' .$_COOKIE['user_link'].'</a>';
-						echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
-						echo "Имя пользователя: " . $userInfo['name'] . '<br />';
-						echo "Email: " . $userInfo['email'] . '<br />';
-						echo "Ссылка на профиль пользователя: " . $userInfo['link'] . '<br />';
-						echo "Пол пользователя: " . $userInfo['gender'] . '<br />';
-						echo "ДР: " . $userInfo['birthday'] . '<br />';
-						echo '<img src="http://graph.facebook.com/' . $userInfo['username'] . '/picture?type=large" />';
-					echo "<br />";
+						if(isset($_COOKIE['user_link'])){
+							$user_link = $_COOKIE['user_link'];
+							echo "<a href='http://facebook.com/".$_COOKIE['user_link']. "' >" .$_COOKIE['user_logged']. "</a>";
+						}
 					?>
+
 				</div>
 			</div>
 		</div>
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 		<script src="js/main.js"></script>
+
 	</body>
 </html>

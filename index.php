@@ -90,7 +90,6 @@ $params = array(
 );
 
 echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Facebook</a></p>';
-
 if (isset($_GET['code'])) {
 	$result = false;
 

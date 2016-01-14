@@ -83,7 +83,7 @@ $(document).ready(function () {
     //sending on ENTER
     $(window).keydown(function (event) {
         if (event.keyCode === 18) {
-            alert ('1111');
+            //alert ('1111');
         }
     });
     $(window).keydown(function (event) {
