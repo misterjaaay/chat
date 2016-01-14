@@ -6,10 +6,7 @@ require_once 'Auth.php';
 session_start();
 
 if (isset($_SESSION['login'])) {
-//	header("Location:http://localhost/chat.php");
-	echo "login user = " . $_SESSION['login'];
-}elseif (isset($userInfo['name'])){
-	echo $userInfo['name'];
+	header("Location:http://localhost/chat.php");
 }
 
 require_once 'header.php';
@@ -83,7 +80,7 @@ if (isset ($_POST ['submit'])) {
 
 $client_id = '195441934138712'; // Client ID
 $client_secret = 'dc96727cda6246ec918b933fe174c273'; // Client secret
-$redirect_uri = 'http://localhost/chat.php'; // Redirect URIs
+$redirect_uri = 'http://localhost/'; // Redirect URIs
 
 $url = 'https://www.facebook.com/dialog/oauth';
 
@@ -123,9 +120,10 @@ if (isset($_GET['code'])) {
 	}
 
 	if ($result) {
-		$user_logged = setcookie('user_logged', $userInfo['name']);
-		echo $_COOKIE['user_logged'];
 
+		$user_logged = setcookie('user_logged', $userInfo['name']);
+		header("Location:http://localhost/chat.php");
+		
 		echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
 		echo "Имя пользователя: " . $userInfo['name'] . '<br />';
 		echo "Email: " . $userInfo['email'] . '<br />';
