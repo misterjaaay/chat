@@ -28,6 +28,7 @@ time, mark, audio, video {
 }
 body {
     line-height:1;
+    padding: 0 !important;
 }
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
@@ -92,6 +93,7 @@ body{
     background:url(/images/bg.jpg);
     padding: 60px ;
 }
+
 .wrapper {
     width: 80%;
     margin: 20px auto;
@@ -100,6 +102,7 @@ body{
     font-family: "PT Sans", Verdana, Arial, sans-serif;
     font-size: 16px;
 }
+
 h1{
     font-style: italic;
     margin: 0 0 20px;

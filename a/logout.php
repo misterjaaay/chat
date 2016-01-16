@@ -1,9 +1,13 @@
 <?php
+require_once 'lib/function.php';
 require_once 'class/User.php';
-include_once 'header.php';
+
 
 $newLogout = new User;
 $logout = $newLogout->logoutUser();
 
+require_once 'header.php';
+require_once 'footer.php';
 
 
+getFooter();

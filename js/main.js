@@ -37,8 +37,10 @@ $(document).ready(function () {
     var login = getCookie ( "user_logged" );
 
     if(!login) {
-        alert("please login to continue");
-        window.location.assign("http://localhost");
+        if(window.location.href === 'http://localhost/chat.php'){
+            //alert("please login to continue");
+            //window.location.assign("http://localhost");
+        }
     }
 
     var socket = io.connect('http://localhost:3000');
