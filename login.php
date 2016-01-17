@@ -1,5 +1,6 @@
 <?php
 /**
+ * @author evgeniy.zarechenskiy
  * Created by PhpStorm.
  * User: jay
  * Date: 16.01.16

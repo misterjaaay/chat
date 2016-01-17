@@ -36,21 +36,18 @@
 					     id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<form action="logout.php" method="post">
-									<button type="submit" name="logout" id="logoutBtn"
-									        class="btn btn-default btn-lg">logout</button>
-								</form>
-							</li>
-							<li>
 								<!-- Trigger the modal with a button -->
 								<button type="button" class="btn btn-default btn-lg"
-								        id="loginBtn">Login</button> <!-- Modal -->
+								        id="loginBtn">Login
+								</button>
+								<!-- Modal -->
 								<div class="modal fade" id="myModal" role="dialog">
 									<div class="modal-dialog">
 										<!-- Modal content-->
 										<div class="modal-content">
 											<div class="modal-header" style="padding: 35px 50px;">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<button type="button" class="close"
+												        data-dismiss="modal">&times;</button>
 												<h4>
 													<span class="glyphicon glyphicon-lock"></span> Login
 												</h4>
@@ -59,20 +56,22 @@
 												<form role="form" action="login.php" method="POST">
 													<div class="form-group">
 														<label for="usrname"><span
-																class="glyphicon glyphicon-user"></span> Username</label>
+																class="glyphicon glyphicon-user"></span>
+															Username</label>
 														<input type="text" name="login" required
 														       class="form-control" id="usrname"
 														       placeholder="Enter login">
 													</div>
 													<div class="form-group">
 														<label for="psw"><span
-																class="glyphicon glyphicon-eye-open"></span> Password</label>
+																class="glyphicon glyphicon-eye-open"></span>
+															Password</label>
 														<input type="password" name="password" required
 														       class="form-control" id="psw"
 														       placeholder="Enter password">
 													</div>
 													<div class="checkbox">
-														<label><input type="checkbox" value="" checked>Remember
+														<label><input name="rememberMe" type="checkbox" value="" checked>Remember
 															me</label>
 													</div>
 													<button type="submit" name="submit"
@@ -88,9 +87,6 @@
 													<span class="glyphicon glyphicon-remove"></span> Cancel
 												</button>
 												<p>
-													Not a member? <a href="#">Sign Up</a>
-												</p>
-												<p>
 													Forgot <a href="#">Password?</a>
 												</p>
 											</div>
@@ -100,15 +96,25 @@
 								</div>
 							</li>
 							<li>
+								<form action="logout.php" method="post">
+									<button type="submit" name="logout" id="logoutBtn"
+									        class="btn btn-default btn-lg">logout
+									</button>
+								</form>
+							</li>
+							<li>
 								<!-- Trigger the modal with a button -->
 								<button type="button" class="btn btn-default btn-lg"
-								        id="registerBtn">Register</button> <!-- Modal -->
+								        id="registerBtn">Register
+								</button>
+								<!-- Modal -->
 								<div class="modal fade" id="regModal" role="dialog">
 									<div class="modal-dialog">
 										<!-- Modal content-->
 										<div class="modal-content">
 											<div class="modal-header" style="padding: 35px 50px;">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<button type="button" class="close"
+												        data-dismiss="modal">&times;</button>
 												<h4>
 													<span class="glyphicon glyphicon-lock"></span> Register
 												</h4>
@@ -117,29 +123,33 @@
 												<form role="form" action="register.php" method="POST">
 													<div class="form-group">
 														<label for="usrname"><span
-																class="glyphicon glyphicon-user"></span> Username</label>
+																class="glyphicon glyphicon-user"></span>
+															Username</label>
 														<input class="form-control" type="text" name="new_login"
-														       id="usrname" placeholder="login" required="" />
+														       id="usrname" placeholder="login" required=""/>
 													</div>
 													<div class="form-group">
 														<label for="email"><span
-																class="glyphicon glyphicon-envelope"></span> Еmail</label>
+																class="glyphicon glyphicon-envelope"></span>
+															Еmail</label>
 														<input class="form-control" type="email" name="email"
-														       id="email" placeholder="Enter email" required="" />
+														       id="email" placeholder="Enter email" required=""/>
 													</div>
 													<div class="form-group">
 														<label for="psw"><span
-																class="glyphicon glyphicon-eye-open"></span> Password</label>
+																class="glyphicon glyphicon-eye-open"></span>
+															Password</label>
 														<input class="form-control" type="password"
 														       name="new_password" id="psw"
-														       placeholder="Enter password" required="" />
+														       placeholder="Enter password" required=""/>
 													</div>
 													<div class="form-group">
 														<label for="r_psw"><span
-																class="glyphicon glyphicon-eye-open"></span> Password</label>
+																class="glyphicon glyphicon-eye-open"></span>
+															Password</label>
 														<input class="form-control" type="password"
 														       name="new_r_password" id="r_psw"
-														       placeholder="Repeat password" required="" />
+														       placeholder="Repeat password" required=""/>
 													</div>
 													<div class="checkbox">
 														<label><input type="checkbox" value="" checked>Remember
@@ -160,6 +170,7 @@
 												<p>
 													Not a member? <a href="#">Sign Up</a>
 												</p>
+
 												<p>
 													Forgot <a href="#">Password?</a>
 												</p>

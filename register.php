@@ -8,8 +8,6 @@
 require_once 'class/User.php';
 require_once 'header.php';
 
-
 $newRegister = new User;
 $register1 = $newRegister->UserRegister();
-echo 11;
 

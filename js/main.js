@@ -27,6 +27,7 @@ $(document).ready(function () {
 
         document.cookie = updatedCookie;
     }
+
     function getCookie(user_logged) {
         var matches = document.cookie.match(new RegExp(
             "(?:^|; )" + user_logged.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -34,10 +35,10 @@ $(document).ready(function () {
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
 
-    var login = getCookie ( "user_logged" );
+    var login = getCookie("user_logged");
 
-    if(!login) {
-        if(window.location.href === 'http://localhost/chat.php'){
+    if (!login) {
+        if (window.location.href === 'http://localhost/chat.php') {
             //alert("please login to continue");
             //window.location.assign("http://localhost");
         }
@@ -82,12 +83,17 @@ $(document).ready(function () {
         message_txt.focus();
     });
 
-    //sending on ENTER
+
+
     $(window).keydown(function (event) {
-        if (event.keyCode === 18) {
-            //alert ('1111');
+        if (event.which === 18) {
+            alert ('&#1092;');
         }
     });
+
+    /**
+     * sending message on Enter
+     */
     $(window).keydown(function (event) {
         if (event.which === 13) {
             var text = $("#message_text").val();

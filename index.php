@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include_once 'header.php';
 
 if (isset($_SESSION['login'])) {
@@ -8,15 +9,12 @@ if (isset($_SESSION['login'])) {
 ?>
 <div class="row text-center">
 	<div class="modal-dialog">
-		<!-- Modal content-->
 		<div class="modal-content">
-			<div class="modal-header" style="padding: 35px 50px;">
-				<h1>Welcome,<?php  echo ($_COOKIE["user_logged"] !='' ? $_COOKIE['user_logged'] : 'Guest');  ?></h1>
-				<p>Chat, Oralce edition</p>
+			<h1>Welcome,<?php echo " ". ($_COOKIE["user_logged"] != '' ? $_COOKIE['user_logged'] : 'Guest'); ?></h1>
 
-			</div>
+			<p>Chat, Oralce edition</p>
 		</div>
 	</div>
 </div>
 
-<?php include_once 'footer.php'?>
+<?php include_once 'footer.php' ?>

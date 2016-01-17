@@ -5,11 +5,6 @@
 
 	<div class="pages chat">
 		<div class="messages" id="messages"></div>
-		<form action="logout.php" method="post">
-			<button type="submit" name="logout" id="logoutBtn"
-			        class="btn btn-default btn-lg">logout
-			</button>
-		</form>
 		<div class="message-text-holder">
 			<input type="text" name="message_text" id="message_text"
 			       placeholder="<?php echo $_COOKIE['user_logged']; ?> | type text here...">
