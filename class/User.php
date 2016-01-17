@@ -27,19 +27,19 @@ class User{
 			$result = $conn->sqlQuery ( $sql );
 			
 			$count = mysqli_num_rows ( $result );
-			echo ' <br />';
-			
+
 			if ($count == 1) {
 
-				echo "Welcome back, ".$this->login." <br />";
 				$sql = "UPDATE users
 					SET	 last_login= '" . $this->login_date . "'
 					Where `login` = '" . $this->login . "'";
-				$_SESSION['login'] = $login;
-				setcookie('user_logged', $login);
+				$conn->sqlQuery ( $sql );
+
+				$_SESSION['login'] = $this->login;
+
+				setcookie('user_logged', $this->login);
 				echo '<script>window.location="http://localhost/chat.php"</script>';
-
-
+				exit();
 
 			} else {
 				die ('Wrong username or password');
@@ -53,7 +53,7 @@ class User{
 		$this->new_password = trim ( $_POST ['new_password'] );
 		$this->r_password = trim ( $_POST ['new_r_password'] );
 		$this->registration_date = date ( "Y:m:d h:m:s" );
-		
+
 		$this->new_login = stripslashes ( $this->new_login );
 		$this->email = stripslashes ( $this->email );
 		$this->new_password = stripslashes ( $this->new_password );
@@ -62,36 +62,36 @@ class User{
 		$this->email = mysql_real_escape_string ( $this->email );
 		$this->new_password = mysql_real_escape_string ( $this->new_password );
 		$this->r_password = mysql_real_escape_string ( $this->r_password );
-		
+
 		if (isset ( $_POST ['register'] )) {
 			$conn = new Db;
-			
+
 			if ($this->new_password === $this->r_password) {
 				$this->new_password = sha1 ( 'ololo' . $this->new_password );
 			} else {
 				exit ("passwords do not match");
 			}
-			
+
 			if (! (filter_var ( $this->email, FILTER_VALIDATE_EMAIL ))) {
 				exit ("This ($this->email) email address is not valid.");
 			}
-			
+
 			if (! preg_match ( "#^[A-Za-z0-9]+$#", $this->new_login )) {
 				exit("Please use letters or digits");
 			}
-			
+
 			$sql = "SELECT * FROM users WHERE `email` = '{$this->email}' OR `login` = '{$this->new_login}'";
 			$result = $conn->sqlQuery ( $sql );
-			
+
 			$count = mysqli_num_rows ( $result );
-			
+
 			if ($count >= 1) {
 				exit ("USER OR EMAIL is occupied");
 			} else {
 				$sql = "INSERT INTO users(login, password, email, create_at )
 					 VALUES ('" . $this->new_login . "','" . $this->new_password . "', '" . $this->email . "', '" . $this->registration_date . "')";
 				$result = $conn->sqlQuery ( $sql );
-				
+
 				if ($result) {
 					echo "Welcome <br />";
 					mail ( $this->email, "Сообщение с сайта " . $_SERVER ['SERVER_NAME'], "Приветствуем Вас на сайте " . $_SERVER ['SERVER_NAME'] );

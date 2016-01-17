@@ -1,6 +1,4 @@
 <?php
-include_once 'header.php';
-
 /**
  * Created by PhpStorm.
  * User: jay
@@ -11,6 +9,6 @@ require_once 'class/User.php';
 
 
 $newLogin = new User;
-$userLogin = $newLogin->UserLogin();
+$newLogin = $newLogin->UserLogin();
 
 
