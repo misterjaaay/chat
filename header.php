@@ -1,3 +1,6 @@
+<?php
+include_once 'fblogin.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +8,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>Smart chat | buy ETAdirect without registration | how to buy OFSC without SMS</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,10 +40,11 @@
 					     id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li>
+								<button class="btn btn-default btn-lg"><?php echo $link; ?></button>
+							</li>
+							<li>
 								<!-- Trigger the modal with a button -->
-								<button type="button" class="btn btn-default btn-lg"
-								        id="loginBtn">Login
-								</button>
+								<button type="button" class="btn btn-default btn-lg" id="loginBtn">Login</button>
 								<!-- Modal -->
 								<div class="modal fade" id="myModal" role="dialog">
 									<div class="modal-dialog">
@@ -152,7 +157,7 @@
 														       placeholder="Repeat password" required=""/>
 													</div>
 													<div class="checkbox">
-														<label><input type="checkbox" value="" checked>Remember
+														<label><input name='rememberMe' type="checkbox" value="" checked>Remember
 															me</label>
 													</div>
 													<button type="submit" name="register"
@@ -168,7 +173,7 @@
 													<span class="glyphicon glyphicon-remove"></span> Cancel
 												</button>
 												<p>
-													Not a member? <a href="#">Sign Up</a>
+													Not a member? <a href="#" id="registerBtn">Sign Up</a>
 												</p>
 
 												<p>

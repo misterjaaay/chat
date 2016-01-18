@@ -1,3 +1,11 @@
+/*
+*
+* todo list
+* 1. storing history
+* 2. list of active users
+* 3. private messages
+* 4. storing FB users in DB
+ */
 $(document).ready(function () {
     function setCookie(name, value, options) {
         options = options || {};
@@ -39,8 +47,8 @@ $(document).ready(function () {
 
     if (!login) {
         if (window.location.href === 'http://localhost/chat.php') {
-            //alert("please login to continue");
-            //window.location.assign("http://localhost");
+            alert("please login to continue");
+            window.location.assign("http://localhost");
         }
     }
 
@@ -82,23 +90,6 @@ $(document).ready(function () {
         msg(data.name, data.message);
         message_txt.focus();
     });
-
-
-
-    $(window).keydown(function (event) {
-        if (event.which === 18) {
-
-        }
-    });
-
-    document.onkeydown = function(e) {
-        e = e || window.event;
-        if (e.altKey && e.keyCode == 84) {
-            console.log("IGh0dHBzOi8veW91dHUuYmUvd1B3dzhjUlF2MW8=")
-            return false
-        }
-    }
-
     /**
      * sending message on Enter
      */
@@ -111,6 +102,13 @@ $(document).ready(function () {
             socket.emit("message", {message: text, name: name});
         }
     });
+    document.onkeydown = function(e) {
+        e = e || window.event;
+        if (e.altKey && e.keyCode == 84) {
+            console.log("IGh0dHBzOi8veW91dHUuYmUvd1B3dzhjUlF2MW8=")
+            return false
+        }
+    }
 
     function safe(str) {
         return str.replace(/&/g, '&amp;')

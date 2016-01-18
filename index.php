@@ -1,20 +1,24 @@
 <?php
 session_start();
+ini_set('display_errors', 'on');
 
 include_once 'header.php';
-
-if (isset($_COOKIE['user_logged'])) {
-	header("Location: http://localhost/chat.php");
-}
 ?>
 <div class="row text-center">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<h1>Welcome,<?php echo " ". ($_COOKIE["user_logged"] != '' ? $_COOKIE['user_logged'] : 'Guest'); ?></h1>
+			<h1>Welcome,<?php
+				if (isset($_COOKIE["user_logged"])){
+					echo " ".$_COOKIE["user_logged"];
+				}else{
+					echo 'Guest';
+				}
+					?>
+			</h1>
 
 			<p>Chat, Oralce edition</p>
 			<p><?php
-				if(isset($_COOKIE['rememberMe'])){
+				if(isset($_COOKIE['user_logged'])){
 					echo '<a href="/chat.php">Continue chatting</a>';
 				}
 			?>
@@ -22,5 +26,4 @@ if (isset($_COOKIE['user_logged'])) {
 		</div>
 	</div>
 </div>
-
 <?php include_once 'footer.php' ?>

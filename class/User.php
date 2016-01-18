@@ -51,14 +51,14 @@ class User
 				$conn->sqlQuery($sql);
 
 				if (isset($this->rememberMe)) {
-					setcookie('rememberMe', $_SERVER["REMOTE_ADDR"] . $this->login, time()+3600 * 24 * 1000);
+					setcookie('rememberMe', $_SERVER["REMOTE_ADDR"] . $this->login, time() + 3600 * 24 * 1000);
 
 					$_SESSION['login'] = $this->login;
-					setcookie('user_logged', $this->login, time()+3600 * 24 * 1000);
+					setcookie('user_logged', $this->login, time() + 3600 * 24 * 1000);
 					header('Location: http://localhost/chat.php');
 					exit();
 
-				} else{
+				} else {
 					$_SESSION['login'] = $this->login;
 
 					setcookie('user_logged', $this->login);
@@ -68,7 +68,7 @@ class User
 
 
 			} else {
-				exit('Wrong username or password') ;
+				exit('Wrong username or password');
 				echo '</br><a href = " http://localhost">Return to main page</a>';
 			}
 		}
@@ -122,10 +122,10 @@ class User
 
 				if ($result) {
 					if (isset($this->rememberMe)) {
-						setcookie('rememberMe', $_SERVER["REMOTE_ADDR"] . $this->login, time()+3600 * 24 * 1000);
+						setcookie('rememberMe', $_SERVER["REMOTE_ADDR"] . $this->login, time() + 3600 * 24 * 1000);
 
 						$_SESSION['login'] = $this->login;
-						setcookie('user_logged', $this->login, time()+3600 * 24 * 1000);
+						setcookie('user_logged', $this->login, time() + 3600 * 24 * 1000);
 
 						/*
 						 * need to setup mail server to use the following feature:
@@ -135,7 +135,7 @@ class User
 						exit();
 
 
-					} else{
+					} else {
 						$_SESSION['login'] = $this->login;
 
 						setcookie('user_logged', $this->login);
@@ -153,7 +153,7 @@ class User
 	}
 
 	/**
-	 *
+	 * logout
 	 */
 	public function logoutUser()
 	{
