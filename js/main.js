@@ -87,9 +87,17 @@ $(document).ready(function () {
 
     $(window).keydown(function (event) {
         if (event.which === 18) {
-            alert ('&#1092;');
+
         }
     });
+
+    document.onkeydown = function(e) {
+        e = e || window.event;
+        if (e.altKey && e.keyCode == 84) {
+            console.log("IGh0dHBzOi8veW91dHUuYmUvd1B3dzhjUlF2MW8=")
+            return false
+        }
+    }
 
     /**
      * sending message on Enter

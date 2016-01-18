@@ -9,7 +9,8 @@
 require_once 'class/User.php';
 
 
-$newLogin = new User;
-$newLogin = $newLogin->UserLogin();
+	$newLogin = new User;
+	$newLogin = $newLogin->UserLogin();
+
 
 
