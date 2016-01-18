@@ -1,14 +1,20 @@
 <?php
 /**
+ * * @author evgeniy.zarechenskiy
+ * @email misterjaaay@gmail.com
+ *
  * Created by PhpStorm.
  * User: jay
  * Date: 18.01.16
  * Time: 11:19
+ * Facebook login
  */
+
 /*fb auth*/
-$client_id = '195441934138712'; // Client ID
-$client_secret = 'dc96727cda6246ec918b933fe174c273'; // Client secret
-$redirect_uri = 'http://localhost/'; // Redirect URIs
+
+$client_id = '195441934138712';
+$client_secret = 'dc96727cda6246ec918b933fe174c273';
+$redirect_uri = 'http://localhost/';
 $url = 'https://www.facebook.com/dialog/oauth';
 $params = array(
 	'client_id' => $client_id,
@@ -38,10 +44,6 @@ if (isset($_GET['code'])) {
 
 	if ($result) {
 		setcookie('user_logged', $userInfo['name']);
-
-
-		echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
-		echo "Имя пользователя: " . $userInfo['name'] . '<br />';
 		header("Location:http://localhost/chat.php");
 	}
 }

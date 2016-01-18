@@ -1,4 +1,9 @@
-// Setup basic express server
+/**
+ * @author evgeniy.zarechenskiy
+ * @email misterjaaay@gmail.com
+ *
+ * Setup basic express server
+ */
 var express = require('express');
 var app = express();
 

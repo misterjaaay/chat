@@ -1,8 +1,13 @@
 <?php
+/**
+ * @author evgeniy.zarechenskiy
+ * @email misterjaaay@gmail.com
+ */
 require_once 'inc/Db.php';
 
+
 /**
- * Class User
+ * Class User includes login/registration/logout methods
  */
 class User
 {
@@ -23,9 +28,7 @@ class User
 	public $r_password;
 	public $registration_date;
 
-	/**
-	 * FacebookLogin @vars
-	 */
+
 	public function UserLogin()
 	{
 		$this->login = trim($_POST ['login']);
@@ -75,7 +78,7 @@ class User
 	}
 
 	/**
-	 *
+	 * Registration
 	 */
 	public function UserRegister()
 	{
@@ -153,7 +156,7 @@ class User
 	}
 
 	/**
-	 * logout
+	 * logout user
 	 */
 	public function logoutUser()
 	{

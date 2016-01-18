@@ -1,5 +1,7 @@
 /*
 *
+* @author evgeniy.zarechenskiy
+* @email misterjaaay@gmail.com
 * todo list
 * 1. storing history
 * 2. list of active users

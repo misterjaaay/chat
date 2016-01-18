@@ -27,17 +27,18 @@ include_once 'fblogin.php';
 			<div class="col-md-12 column">
 				<nav class="navbar navbar-default" role="navigation">
 					<div class="navbar-header">
-						<button class="btn btn-info  btn-lg"><a class="" href="/">Home</a></button>
+
+						<button class="btn btn-info  btn-md"><a class="" href="/">Home</a></button>
 					</div>
 					<div class="collapse navbar-collapse"
 					     id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<button class="btn btn-primary fb-btn btn-lg"><?php echo $link; ?></button>
+								<button class="btn btn-primary fb-btn btn-md"><?php echo $link; ?></button>
 							</li>
 							<li>
 								<!-- Trigger the modal with a button -->
-								<button type="button" class="btn btn-success btn-lg" id="loginBtn">Login</button>
+								<button type="button" class="btn btn-success btn-md" id="loginBtn">Login</button>
 								<!-- Modal -->
 								<div class="modal fade" id="myModal" role="dialog">
 									<div class="modal-dialog">
@@ -93,13 +94,13 @@ include_once 'fblogin.php';
 							<li>
 								<form action="logout.php" method="post">
 									<button type="submit" name="logout" id="logoutBtn"
-									        class="btn btn-default btn-lg">logout
+									        class="btn btn-default btn-md">logout
 									</button>
 								</form>
 							</li>
 							<li>
 								<!-- Trigger the modal with a button -->
-								<button type="button" class="btn btn-warning btn-lg"
+								<button type="button" class="btn btn-warning btn-md"
 								        id="registerBtn">Register
 								</button>
 								<!-- Modal -->

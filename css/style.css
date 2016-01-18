@@ -147,13 +147,17 @@ h1{
 .fb-btn a{
     color: #fff !important;
 }
+.fb-btn a:hover{
+    text-decoration: none;
+}
 #footer{
     text-align: center;
 }
 /* updating default bootstrap classes*/
-.btn-lg{
+.btn-md{
     margin: 0 10px 0 0;
 }
+.navbar{min-height: 43px !important;}
 .navbar-default{
     padding: 3px 0;
 }

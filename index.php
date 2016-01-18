@@ -1,7 +1,5 @@
 <?php
 session_start();
-ini_set('display_errors', 'on');
-
 include_once 'header.php';
 ?>
 <div class="row text-center">
