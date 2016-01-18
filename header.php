@@ -27,24 +27,17 @@ include_once 'fblogin.php';
 			<div class="col-md-12 column">
 				<nav class="navbar navbar-default" role="navigation">
 					<div class="navbar-header">
-						<button type="button" class="navbar-toggle"
-						        data-toggle="collapse"
-						        data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span><span
-								class="icon-bar"></span><span class="icon-bar"></span><span
-								class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="/">Home</a>
+						<button class="btn btn-info  btn-lg"><a class="" href="/">Home</a></button>
 					</div>
 					<div class="collapse navbar-collapse"
 					     id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<button class="btn btn-default btn-lg"><?php echo $link; ?></button>
+								<button class="btn btn-primary fb-btn btn-lg"><?php echo $link; ?></button>
 							</li>
 							<li>
 								<!-- Trigger the modal with a button -->
-								<button type="button" class="btn btn-default btn-lg" id="loginBtn">Login</button>
+								<button type="button" class="btn btn-success btn-lg" id="loginBtn">Login</button>
 								<!-- Modal -->
 								<div class="modal fade" id="myModal" role="dialog">
 									<div class="modal-dialog">
@@ -91,9 +84,6 @@ include_once 'fblogin.php';
 												        data-dismiss="modal">
 													<span class="glyphicon glyphicon-remove"></span> Cancel
 												</button>
-												<p>
-													Forgot <a href="#">Password?</a>
-												</p>
 											</div>
 										</div>
 
@@ -109,7 +99,7 @@ include_once 'fblogin.php';
 							</li>
 							<li>
 								<!-- Trigger the modal with a button -->
-								<button type="button" class="btn btn-default btn-lg"
+								<button type="button" class="btn btn-warning btn-lg"
 								        id="registerBtn">Register
 								</button>
 								<!-- Modal -->
@@ -172,13 +162,6 @@ include_once 'fblogin.php';
 												        data-dismiss="modal">
 													<span class="glyphicon glyphicon-remove"></span> Cancel
 												</button>
-												<p>
-													Not a member? <a href="#" id="registerBtn">Sign Up</a>
-												</p>
-
-												<p>
-													Forgot <a href="#">Password?</a>
-												</p>
 											</div>
 										</div>
 

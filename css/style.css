@@ -135,11 +135,20 @@ h1{
     display: block;
     font-size: 100%;
     border: 10px solid #000;
-    height: 60px;
+    height: 70px;
     outline: none;
     padding: 0 30px;
     width: 95%;
     margin: 0 auto;
+}
+.fb-btn{
+    color: #fff;
+}
+.fb-btn a{
+    color: #fff !important;
+}
+#footer{
+    text-align: center;
 }
 /* updating default bootstrap classes*/
 .btn-lg{
@@ -147,4 +156,7 @@ h1{
 }
 .navbar-default{
     padding: 3px 0;
+}
+.navbar-header{
+    margin: 0 0 0 10px;
 }
